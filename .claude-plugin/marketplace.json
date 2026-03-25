@@ -1,0 +1,20 @@
+{
+  "name": "marinotta-skills",
+  "displayName": "Marinotta Skills",
+  "description": "A curated collection of skills for Claude Code",
+  "version": "1.0.0",
+  "author": "d3lap1ace",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d3Lap1ace/marinotta-skills.git"
+  },
+  "skills": [
+    {
+      "name": "exchange-rate",
+      "displayName": "Exchange Rate",
+      "description": "Currency exchange rate converter and query tool. Query real-time rates, historical rates, and rate trends.",
+      "entry": "skills/exchange-rate/SKILL.md"
+    }
+  ]
+}

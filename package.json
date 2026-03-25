@@ -1,0 +1,28 @@
+{
+  "name": "marinotta-skills",
+  "version": "1.0.0",
+  "description": "A curated collection of skills for Claude Code",
+  "type": "module",
+  "author": "d3lap1ace",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d3Lap1ace/marinotta-skills.git"
+  },
+  "keywords": [
+    "claude-code",
+    "skills",
+    "exchange-rate",
+    "currency",
+    "converter"
+  ],
+  "files": [
+    "skills/",
+    ".claude-plugin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test:exchange-rate": "npx tsx skills/exchange-rate/scripts/exchange.ts --help"
+  }
+}

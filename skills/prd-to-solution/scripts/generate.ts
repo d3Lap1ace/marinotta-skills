@@ -6,13 +6,12 @@
  * Output: ~/Documents/solution/{project_name}_技术方案_{timestamp}.md
  *
  * Options:
- *   --analyze    Analyze current project structure and include in solution
+ *   --analyze    Include basic project structure information
  *   --project    Path to project directory (default: current directory)
  */
 
 import fs from 'fs';
 import path from 'path';
-import { analyzeProject, formatProjectInfo } from './lib/analyzer.js';
 
 const SOLUTION_DIR = '/Users/lvhang/Documents/solution';
 // Template path relative to script location
@@ -68,55 +67,38 @@ function loadTemplate(): string {
 }
 
 /**
- * Format tech stack for solution document
+ * Get basic project information
  */
-function formatTechStack(info: ReturnType<typeof analyzeProject>): string {
-  const lines: string[] = [];
+function getProjectInfo(projectPath: string): { name: string; directories: string[] } {
+  const packageJsonPath = path.join(projectPath, 'package.json');
+  let projectName = path.basename(projectPath);
 
-  lines.push(`### 前端技术`);
-  if (info.type === 'frontend' || info.type === 'full-stack') {
-    info.techStack.languages.filter(l => ['JavaScript', 'TypeScript'].includes(l)).forEach(lang => {
-      lines.push(`| ${lang} | | 核心语言`);
-    });
-    info.techStack.frameworks.filter(f =>
-      ['React', 'Vue.js', 'Next.js', 'Nuxt.js', 'Angular', 'Svelte'].includes(f)
-    ).forEach(fw => {
-      lines.push(`| ${fw} | | UI 框架`);
-    });
+  if (fs.existsSync(packageJsonPath)) {
+    try {
+      const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+      if (packageJson.name) {
+        projectName = packageJson.name;
+      }
+    } catch {
+      // Use directory name as fallback
+    }
   }
-  if (lines.length === 0) lines.push(`| - | - | -`);
-  lines.push(``);
 
-  lines.push(`### 后端技术`);
-  if (info.type === 'backend' || info.type === 'full-stack') {
-    info.techStack.languages.filter(l => !['JavaScript', 'TypeScript'].includes(l)).forEach(lang => {
-      lines.push(`| ${lang} | | 服务端语言`);
-    });
-    info.techStack.frameworks.filter(f =>
-      ['Express.js', 'Fastify', 'Koa', 'NestJS', 'Django', 'Spring Boot'].includes(f)
-    ).forEach(fw => {
-      lines.push(`| ${fw} | | 后端框架`);
-    });
+  const directories: string[] = [];
+  try {
+    const items = fs.readdirSync(projectPath);
+    for (const item of items) {
+      const fullPath = path.join(projectPath, item);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory() && !item.startsWith('.')) {
+        directories.push(item);
+      }
+    }
+  } catch {
+    // Ignore errors
   }
-  if (lines.length === 0) lines.push(`| - | - | -`);
-  lines.push(``);
 
-  lines.push(`### 数据存储`);
-  if (info.techStack.databases.length > 0) {
-    info.techStack.databases.forEach(db => {
-      lines.push(`| ${db} | | ${db.includes('ORM') ? '数据访问层' : '数据存储'}`);
-    });
-  } else {
-    lines.push(`| - | - | -`);
-  }
-  lines.push(``);
-
-  lines.push(`### 基础设施`);
-  if (info.metadata.hasDocker) lines.push(`| Docker | | 容器化`);
-  if (info.metadata.hasCI) lines.push(`| GitHub Actions | | CI/CD`);
-  if (lines.length <= 2) lines.push(`| - | | |`);
-
-  return lines.join('\n');
+  return { name: projectName, directories };
 }
 
 /**
@@ -137,31 +119,31 @@ function generateSolution(config: SolutionConfig): string {
     solution = solution.replace(new RegExp(escapeRegExp(key), 'g'), value);
   }
 
-  // If analyze flag is set, append project analysis
+  // If analyze flag is set, append basic project info
   if (config.analyze) {
     const projectPath = config.projectPath || process.cwd();
-    const projectInfo = analyzeProject(projectPath);
+    const projectInfo = getProjectInfo(projectPath);
 
     const analysisSection = `
----
-
-## 附录：项目结构分析
-
-${formatProjectInfo(projectInfo)}
 
 ---
 
-> *以上项目结构分析基于当前项目目录自动生成*
+## 附录：项目基本信息
+
+**项目名称**: ${projectInfo.name}
+**项目路径**: ${projectPath}
+
+**目录结构**:
+\`\`\`
+${projectInfo.directories.map(d => d + '/').join('\n')}
+\`\`\`
+
+---
+
+> *以上项目信息基于当前项目目录自动生成*
 `;
 
     solution += analysisSection;
-
-    // Try to fill in tech stack section
-    const techStackSection = formatTechStack(projectInfo);
-    solution = solution.replace(
-      /### 前端技术[\s\S]*?### 后端技术[\s\S]*?### 数据存储[\s\S]*?### 基础设施[\s\S]*?(?=\n##)/,
-      techStackSection.slice(0, -1) + '\n\n'
-    );
   }
 
   return solution;
@@ -207,7 +189,7 @@ Arguments:
   project-name    Name of the project (required)
 
 Options:
-  --analyze       Analyze current project structure and include in solution
+  --analyze       Include basic project structure information
   --project <dir> Path to project directory (default: current directory)
   --version <ver> Solution version (default: v1.0)
   --author <name> Author name (default: 技术团队)
@@ -216,7 +198,7 @@ Examples:
   # Generate solution template
   bun scripts/generate.ts 用户订单系统
 
-  # Generate with project analysis
+  # Generate with basic project info
   bun scripts/generate.ts 用户订单系统 --analyze
 
   # Analyze specific project
@@ -262,18 +244,20 @@ function main() {
   console.log(`   ${filepath}`);
 
   if (analyze) {
-    console.log(`\n📊 项目结构分析已包含在方案中`);
+    console.log(`\n📊 项目基本信息已包含在方案中`);
     const analyzedPath = projectPath || process.cwd();
     console.log(`   分析目录: ${analyzedPath}`);
   }
 
   console.log(`\n请根据 PRD 内容完善以下章节:`);
-  console.log(`   - 项目概述`);
-  console.log(`   - 需求分析`);
-  console.log(`   - 技术方案`);
-  console.log(`   - 实施计划`);
-  console.log(`   - 风险评估`);
-  console.log(`   - 成本估算`);
+  console.log(`   - 1. 背景和目标`);
+  console.log(`   - 2. 改动范围`);
+  console.log(`   - 3. 现状梳理（可选）`);
+  console.log(`   - 4. 总体方案（架构图/时序图）`);
+  console.log(`   - 5. 关键设计点`);
+  console.log(`   - 6. 改动清单`);
+  console.log(`   - 7. 测试计划与结果`);
+  console.log(`   - 8. 风险评估`);
 }
 
 // Run main

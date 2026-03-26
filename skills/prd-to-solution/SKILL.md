@@ -33,47 +33,61 @@ Generate comprehensive technical solution documents from Product Requirements Do
 
 Generated solution documents include:
 
-### 1. 项目概述 (Project Overview)
-- Background and objectives
-- Scope and boundaries
-- Key stakeholders
+### 1. 背景和目标
+- 项目背景说明
+- 改动目标
+- 成功标准
 
-### 2. 需求分析 (Requirements Analysis)
-- Functional requirements
-- Non-functional requirements
-- User stories and use cases
-- Acceptance criteria
+### 2. 改动范围
+- 包含的功能模块
+- 不包含的内容说明
 
-### 3. 技术方案 (Technical Solution)
-- System architecture
-- Component design
-- Data models
-- API design
-- Integration points
+### 3. 现状梳理（可选）
+- 当前架构描述
+- 存在问题分析
 
-### 4. 技术栈 (Tech Stack)
-- Frontend technologies
-- Backend technologies
-- Database and storage
-- Infrastructure and DevOps
-- Third-party services
+### 4. 总体方案
+- 架构设计（架构图）
+- 时序图
+- 核心流程说明
 
-### 5. 实施计划 (Implementation Plan)
-- Development phases
-- Milestones and deliverables
-- Timeline estimates
-- Resource allocation
+### 5. 关键设计点
+- **接口变更**（可选）
+  - HTTP/RPC 接口定义
+  - 请求/响应参数
+  - 兼容策略
+- **数据模型/表结构变更**（可选）
+  - DDL 语句
+  - 索引设计
+  - 数据迁移方案
+- **异步/任务/幂等/重试**（可选）
+  - 异步任务配置
+  - 幂等设计
+  - 重试策略
+- **权限/审计/安全**（可选）
+  - 权限设计
+  - 审计日志
+  - 安全方案
+- **服务角色职责**（可选）
+- **上下游依赖**（可选）
 
-### 6. 风险评估 (Risk Assessment)
-- Technical risks
-- Schedule risks
-- Resource risks
-- Mitigation strategies
+### 6. 改动清单
+- 按项目分组的改动列表
+- 模块/包路径
+- 配置变更
+- 依赖变更
 
-### 7. 成本估算 (Cost Estimation)
-- Development effort
-- Infrastructure costs
-- Ongoing maintenance
+### 7. 测试计划与结果
+- 测试范围
+- 接口测试示例（含入参/出参）
+- 本地测试结果
+- CI 测试结果
+
+### 8. 风险评估
+- 技术风险
+- 业务风险
+- 进度风险
+- 回滚方案
 
 ## Output Location
 
@@ -107,20 +121,12 @@ npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统" --analyz
 
 ## Project Analysis Feature
 
-When using the `--analyze` flag, the skill will:
-- Scan the project directory structure
-- Detect programming languages (TypeScript, Python, Go, etc.)
-- Identify frameworks (React, Vue, Express, Django, etc.)
-- Find databases and ORMs (PostgreSQL, MongoDB, Prisma, etc.)
-- List build tools and testing frameworks
-- Include detected tech stack in the solution document
-- Append a project structure analysis appendix
+When using the `--analyze` flag, the skill will scan the current project structure and include basic project information (project name, directory structure) in the solution document appendix.
 
 This is especially useful when:
 - Creating technical solutions for existing projects
 - Documenting current architecture before changes
-- Onboarding new developers to the team
-- Creating architecture decision records (ADRs)
+- Understanding project context for design decisions
 
 ## References
 
@@ -132,7 +138,7 @@ This is especially useful when:
 
 - This skill creates structured documents suitable for technical review meetings
 - Supports both Chinese and English PRD documents
-- **Project analysis automatically detects**: languages, frameworks, databases, build tools, testing frameworks
+- Template focuses on practical technical review points (architecture, design changes, testing, risks)
 - Automatically timestamps output files for version tracking
 - Encourages iterative refinement through follow-up questions
-- Use `--analyze` flag to leverage existing project structure in solution documents
+- Use `--analyze` flag to include basic project structure information

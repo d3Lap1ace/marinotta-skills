@@ -52,24 +52,30 @@ bun skills/exchange-rate/scripts/exchange.ts currencies
 Generate comprehensive technical solution documents from Product Requirements Documents (PRD) for technical review.
 
 **Features:**
-- Structured solution document template
-- **Automatic project structure analysis** (`--analyze` flag)
-- Tech stack auto-detection (languages, frameworks, databases)
-- Architecture design guidance
-- Implementation timeline planning
-- Risk assessment checklist
-- Cost estimation framework
+- Structured solution document template (8 main sections)
+- Architecture and sequence diagram templates
+- Key design points (API changes, data models, async/idempotent, security, etc.)
+- Change list grouped by project/module
+- Test plan with interface test examples
+- Risk assessment with rollback plan
+
+**Template Structure:**
+1. 背景和目标
+2. 改动范围
+3. 现状梳理（可选）
+4. 总体方案（架构图/时序图）
+5. 关键设计点
+6. 改动清单
+7. 测试计划与结果
+8. 风险评估
 
 **Usage:**
 ```bash
 # Generate a solution document template
 npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统"
 
-# Generate with automatic project structure analysis
+# With basic project info
 npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统" --analyze
-
-# Analyze a specific project directory
-npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统" --analyze --project /path/to/project
 
 # With custom version and author
 npx tsx skills/prd-to-solution/scripts/generate.ts "支付中台" --version v2.0 --author "张三"

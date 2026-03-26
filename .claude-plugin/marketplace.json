@@ -15,6 +15,12 @@
       "displayName": "Exchange Rate",
       "description": "Currency exchange rate converter and query tool. Query real-time rates, historical rates, and rate trends.",
       "entry": "skills/exchange-rate/SKILL.md"
+    },
+    {
+      "name": "prd-to-solution",
+      "displayName": "PRD to Solution",
+      "description": "Generate technical solution documents from Product Requirements Documents (PRD). Creates comprehensive technical proposals for review.",
+      "entry": "skills/prd-to-solution/SKILL.md"
     }
   ]
 }

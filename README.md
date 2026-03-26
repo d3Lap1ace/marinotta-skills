@@ -13,6 +13,7 @@ Each skill in this collection is designed to solve specific tasks or workflows. 
 | Skill | Description | Tech Stack |
 |-------|-------------|------------|
 | **exchange-rate** | Currency exchange rate converter and query tool. Query real-time rates, historical rates, and rate trends. Data source: Frankfurter API (ECB). | TypeScript, Bun |
+| **prd-to-solution** | Generate technical solution documents from Product Requirements Documents (PRD). Creates comprehensive technical proposals for review. | TypeScript, Bun |
 
 ### exchange-rate
 
@@ -45,6 +46,43 @@ bun skills/exchange-rate/scripts/exchange.ts currencies
 ```
 
 **Supported Currencies:** USD, CNY, EUR, GBP, JPY, KRW, HKD, SGD, AUD, CAD, THB, CHF, and more.
+
+### prd-to-solution
+
+Generate comprehensive technical solution documents from Product Requirements Documents (PRD) for technical review.
+
+**Features:**
+- Structured solution document template
+- **Automatic project structure analysis** (`--analyze` flag)
+- Tech stack auto-detection (languages, frameworks, databases)
+- Architecture design guidance
+- Implementation timeline planning
+- Risk assessment checklist
+- Cost estimation framework
+
+**Usage:**
+```bash
+# Generate a solution document template
+npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统"
+
+# Generate with automatic project structure analysis
+npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统" --analyze
+
+# Analyze a specific project directory
+npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统" --analyze --project /path/to/project
+
+# With custom version and author
+npx tsx skills/prd-to-solution/scripts/generate.ts "支付中台" --version v2.0 --author "张三"
+```
+
+**Output:** `~/Documents/solution/{project_name}_技术方案_{timestamp}.md`
+
+**In Claude Code:**
+```
+"根据这个 PRD 生成技术方案"
+"帮我分析这份需求文档，输出评审用的技术方案"
+"Review this PRD and create a technical solution document"
+```
 
 ## 🛠️ Installation
 

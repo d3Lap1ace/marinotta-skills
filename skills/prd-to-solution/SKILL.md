@@ -131,8 +131,6 @@ This is especially useful when:
 ## References
 
 - `templates/solution-template.md` - Standard solution document template
-- `references/tech-stack-guide.md` - Technology selection guidelines
-- `references/risk-checklist.md` - Common risks and mitigation strategies
 
 ## Notes
 

@@ -15,7 +15,7 @@ import path from 'path';
 
 const SOLUTION_DIR = '/Users/lvhang/Documents/solution';
 // Template path relative to script location
-const TEMPLATE_PATH = path.join('skills', 'prd-to-solution', 'templates', 'solution-template.md');
+const TEMPLATE_PATH = path.join('skills', 'prd-to-solution', 'references', 'solution-template.md');
 
 interface SolutionConfig {
   projectName: string;

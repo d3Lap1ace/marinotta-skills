@@ -130,7 +130,7 @@ This is especially useful when:
 
 ## References
 
-- `templates/solution-template.md` - Standard solution document template
+- `references/solution-template.md` - Standard solution document template
 
 ## Notes
 

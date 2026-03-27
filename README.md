@@ -60,33 +60,33 @@ Generate comprehensive technical solution documents from Product Requirements Do
 - Risk assessment with rollback plan
 
 **Template Structure:**
-1. 背景和目标
-2. 改动范围
-3. 现状梳理（可选）
-4. 总体方案（架构图/时序图）
-5. 关键设计点
-6. 改动清单
-7. 测试计划与结果
-8. 风险评估
+1. Background and Objectives
+2. Scope of Changes
+3. Current State Analysis (Optional)
+4. Overall Solution (Architecture/Sequence Diagrams)
+5. Key Design Points
+6. Change List
+7. Test Plan and Results
+8. Risk Assessment
 
 **Usage:**
 ```bash
 # Generate a solution document template
-npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统"
+npx tsx skills/prd-to-solution/scripts/generate.ts "User Order System"
 
 # With basic project info
-npx tsx skills/prd-to-solution/scripts/generate.ts "用户订单系统" --analyze
+npx tsx skills/prd-to-solution/scripts/generate.ts "User Order System" --analyze
 
 # With custom version and author
-npx tsx skills/prd-to-solution/scripts/generate.ts "支付中台" --version v2.0 --author "张三"
+npx tsx skills/prd-to-solution/scripts/generate.ts "Payment Platform" --version v2.0 --author "John Doe"
 ```
 
-**Output:** `~/Documents/solution/{project_name}_技术方案_{timestamp}.md`
+**Output:** `~/Documents/solution/{project_name}_technical_solution_{timestamp}.md`
 
 **In Claude Code:**
 ```
-"根据这个 PRD 生成技术方案"
-"帮我分析这份需求文档，输出评审用的技术方案"
+"Generate a technical solution from this PRD"
+"Analyze this requirements document and output a technical solution for review"
 "Review this PRD and create a technical solution document"
 ```
 

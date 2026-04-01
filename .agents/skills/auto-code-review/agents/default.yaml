@@ -1,0 +1,4 @@
+interface:
+  display_name: "Auto Code Review"
+  short_description: "Automatically review and fix code"
+  default_prompt: "Use $auto-code-review to review the code and automatically apply fixes based on Claude's feedback."

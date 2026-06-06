@@ -1,0 +1,4 @@
+interface:
+  display_name: "PRD Solution Review"
+  short_description: "Analyze repo and draft concise review plan"
+  default_prompt: "Use $prd-solution-review to inspect this repo and write a concise review-ready solution from the PRD or requirements."

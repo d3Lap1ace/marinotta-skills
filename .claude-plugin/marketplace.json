@@ -21,6 +21,24 @@
       "displayName": "PRD to Solution",
       "description": "Generate technical solution documents from Product Requirements Documents (PRD). Creates comprehensive technical proposals for review.",
       "entry": "skills/prd-to-solution/SKILL.md"
+    },
+    {
+      "name": "auto-code-review",
+      "displayName": "Auto Code Review",
+      "description": "Automatically review code using Claude API feedback and apply safe fixes.",
+      "entry": "skills/auto-code-review/SKILL.md"
+    },
+    {
+      "name": "prd-solution-review",
+      "displayName": "PRD Solution Review",
+      "description": "Analyze project structure and requirements, then draft a concise review-ready solution proposal.",
+      "entry": "skills/prd-solution-review/SKILL.md"
+    },
+    {
+      "name": "translate-en-zh",
+      "displayName": "Translate English to Chinese",
+      "description": "Translate English web pages, PDFs, Markdown, HTML, and plain text into polished Simplified Chinese.",
+      "entry": "skills/translate-en-zh/SKILL.md"
     }
   ]
 }

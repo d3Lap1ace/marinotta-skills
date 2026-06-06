@@ -1,0 +1,4 @@
+interface:
+  display_name: "Translate EN to ZH"
+  short_description: "English sources to polished Chinese"
+  default_prompt: "Use $translate-en-zh to translate this English source into polished Simplified Chinese while preserving structure."

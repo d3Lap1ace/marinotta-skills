@@ -14,7 +14,10 @@
     "skills",
     "exchange-rate",
     "currency",
-    "converter"
+    "converter",
+    "prd",
+    "code-review",
+    "translation"
   ],
   "files": [
     "skills/",
@@ -23,6 +26,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "test:exchange-rate": "npx tsx skills/exchange-rate/scripts/exchange.ts --help"
+    "test:exchange-rate": "npx tsx skills/exchange-rate/scripts/exchange.ts --help",
+    "validate": "python3 -B scripts/validate.py",
+    "install:dry-run": "python3 -B scripts/install.py all --dry-run"
   }
 }

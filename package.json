@@ -20,6 +20,7 @@
     "translation"
   ],
   "files": [
+    ".claude-plugin/",
     "skills/",
     "README.md",
     "LICENSE"

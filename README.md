@@ -16,6 +16,29 @@ Each skill lives under `skills/<name>/`. Agent-facing instructions are in `SKILL
 
 ## Installation
 
+### Claude Code Plugin Marketplace
+
+Add this repository as a Claude Code plugin marketplace:
+
+```text
+/plugin marketplace add d3Lap1ace/marinotta-skills
+```
+
+Install the plugin:
+
+```text
+/plugin install marinotta-skills@marinotta-skills
+```
+
+After installation, skills are available under the plugin namespace, for example:
+
+```text
+/marinotta-skills:translate-en-zh
+/marinotta-skills:auto-code-review
+```
+
+### Local Install Script
+
 Install all supported targets:
 
 ```bash
@@ -46,6 +69,7 @@ Use `--force` to overwrite an existing installed copy.
 ## Repository Layout
 
 ```text
+.claude-plugin/         Claude Code plugin marketplace and plugin manifests
 commands/claude-code/   Claude Code slash command templates
 docs/                   Installation and authoring notes
 scripts/                Installer and validation helpers

@@ -46,7 +46,6 @@ Use `--force` to overwrite an existing installed copy.
 ## Repository Layout
 
 ```text
-.claude-plugin/         Claude Code marketplace metadata
 commands/claude-code/   Claude Code slash command templates
 docs/                   Installation and authoring notes
 scripts/                Installer and validation helpers

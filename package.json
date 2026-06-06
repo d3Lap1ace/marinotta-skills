@@ -21,7 +21,6 @@
   ],
   "files": [
     "skills/",
-    ".claude-plugin/",
     "README.md",
     "LICENSE"
   ],

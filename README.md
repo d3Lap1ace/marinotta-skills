@@ -9,6 +9,7 @@ A small Claude Code plugin marketplace for reusable skills.
 | Skill | What it does |
 | --- | --- |
 | `exchange-rate` | Currency conversion, latest rates, historical rates, and rate trends. |
+| `medium-track` | Fetches a Medium article via your own sid cookie, then translates it and produces a key-point summary inline. |
 | `prd-solution-review` | Turns repo context plus requirements into a concise review proposal. |
 | `translate-en-zh` | Translates English pages, PDFs, Markdown, HTML, and text into Simplified Chinese. |
 
@@ -25,6 +26,7 @@ Install only the plugin you need:
 | Plugin | Install command |
 | --- | --- |
 | `exchange-rate` | `/plugin install exchange-rate@marinotta-skills` |
+| `medium-track` | `/plugin install medium-track@marinotta-skills` |
 | `prd-solution-review` | `/plugin install prd-solution-review@marinotta-skills` |
 | `translate-en-zh` | `/plugin install translate-en-zh@marinotta-skills` |
 
@@ -32,6 +34,7 @@ Install only the plugin you need:
 
 ```text
 /exchange-rate Convert 100 USD to CNY
+/medium-track https://medium.com/<author>/<slug>
 /prd-solution-review Analyze this repo and draft a review-ready plan
 /translate-en-zh Translate this saved HTML article into Chinese
 ```

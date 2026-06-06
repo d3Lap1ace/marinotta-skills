@@ -9,6 +9,7 @@
 | 技能 | 用途 |
 | --- | --- |
 | `exchange-rate` | 汇率换算、最新汇率、历史汇率和趋势查询。 |
+| `medium-track` | 用你自己的 sid cookie 抓取 Medium 文章，会话内输出简体中文译文与要点摘要。 |
 | `prd-solution-review` | 结合仓库上下文和需求，输出简洁的评审方案。 |
 | `translate-en-zh` | 将英文网页、PDF、Markdown、HTML 和文本翻译成简体中文。 |
 
@@ -25,6 +26,7 @@
 | 插件 | 安装命令 |
 | --- | --- |
 | `exchange-rate` | `/plugin install exchange-rate@marinotta-skills` |
+| `medium-track` | `/plugin install medium-track@marinotta-skills` |
 | `prd-solution-review` | `/plugin install prd-solution-review@marinotta-skills` |
 | `translate-en-zh` | `/plugin install translate-en-zh@marinotta-skills` |
 
@@ -32,6 +34,7 @@
 
 ```text
 /exchange-rate Convert 100 USD to CNY
+/medium-track https://medium.com/<author>/<slug>
 /prd-solution-review Analyze this repo and draft a review-ready plan
 /translate-en-zh Translate this saved HTML article into Chinese
 ```

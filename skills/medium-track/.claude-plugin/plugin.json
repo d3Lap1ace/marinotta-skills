@@ -1,0 +1,19 @@
+{
+  "name": "medium-track",
+  "version": "1.0.0",
+  "displayName": "Medium Track",
+  "description": "Fetch Medium articles via your own sid cookie, translate to Simplified Chinese, and produce a structured key-point summary inline.",
+  "author": {
+    "name": "d3lap1ace",
+    "url": "https://github.com/d3Lap1ace"
+  },
+  "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "medium",
+    "translation",
+    "summary"
+  ]
+}

@@ -21,6 +21,15 @@ Add the marketplace:
 /plugin marketplace add d3Lap1ace/marinotta-skills
 ```
 
+Install all plugins:
+
+```text
+/plugin install exchange-rate@marinotta-skills
+/plugin install medium-track@marinotta-skills
+/plugin install prd-solution-review@marinotta-skills
+/plugin install translate-en-zh@marinotta-skills
+```
+
 Install only the plugin you need:
 
 | Plugin | Install command |

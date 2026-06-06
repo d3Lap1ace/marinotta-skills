@@ -21,6 +21,15 @@
 /plugin marketplace add d3Lap1ace/marinotta-skills
 ```
 
+安装全部插件：
+
+```text
+/plugin install exchange-rate@marinotta-skills
+/plugin install medium-track@marinotta-skills
+/plugin install prd-solution-review@marinotta-skills
+/plugin install translate-en-zh@marinotta-skills
+```
+
 只安装你需要的插件：
 
 | 插件 | 安装命令 |

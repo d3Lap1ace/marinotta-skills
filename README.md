@@ -1,6 +1,13 @@
 # Marinotta Skills
 
+<p align="center">
+  <a href="./README.md"><img src="https://img.shields.io/badge/English-0B6EFD?style=for-the-badge" alt="English"></a>
+  <a href="./README.zh-CN.md"><img src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87-111827?style=for-the-badge" alt="中文"></a>
+</p>
+
 A curated collection of reusable skills for Claude Code, Codex, and agent-style skill loaders.
+
+Install it as a Claude Code plugin marketplace, or copy individual skills into your local agent setup.
 
 ## Available Skills
 

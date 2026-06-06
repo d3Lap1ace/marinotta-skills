@@ -1,0 +1,18 @@
+{
+  "name": "exchange-rate",
+  "version": "1.0.0",
+  "displayName": "Exchange Rate",
+  "description": "Currency conversion, latest rates, historical rates, and exchange-rate trends.",
+  "author": {
+    "name": "d3lap1ace",
+    "url": "https://github.com/d3Lap1ace"
+  },
+  "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "exchange-rate",
+    "currency"
+  ]
+}

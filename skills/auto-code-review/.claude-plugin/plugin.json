@@ -1,0 +1,17 @@
+{
+  "name": "auto-code-review",
+  "version": "1.0.0",
+  "displayName": "Auto Code Review",
+  "description": "Review code and apply safe fixes from Claude feedback.",
+  "author": {
+    "name": "d3lap1ace",
+    "url": "https://github.com/d3Lap1ace"
+  },
+  "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "code-review"
+  ]
+}

@@ -6,10 +6,10 @@
   "description": "A Claude Code plugin marketplace for reusable development, review, translation, and utility skills.",
   "plugins": [
     {
-      "name": "marinotta-skills",
-      "displayName": "Marinotta Skills",
-      "source": "./",
-      "description": "Reusable Claude Code skills for exchange rates, PRD solution work, code review, and English-to-Chinese translation.",
+      "name": "exchange-rate",
+      "displayName": "Exchange Rate",
+      "source": "./skills/exchange-rate",
+      "description": "Currency conversion, latest rates, historical rates, and exchange-rate trends.",
       "author": {
         "name": "d3lap1ace"
       },
@@ -19,11 +19,62 @@
         "claude-code",
         "skills",
         "exchange-rate",
-        "prd",
-        "code-review",
-        "translation"
+        "currency"
       ],
-      "category": "productivity"
+      "category": "utilities"
+    },
+    {
+      "name": "auto-code-review",
+      "displayName": "Auto Code Review",
+      "source": "./skills/auto-code-review",
+      "description": "Review code and apply safe fixes from Claude feedback.",
+      "author": {
+        "name": "d3lap1ace"
+      },
+      "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "code-review"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "prd-solution-review",
+      "displayName": "PRD Solution Review",
+      "source": "./skills/prd-solution-review",
+      "description": "Analyze a repo plus requirements and draft a concise review-ready solution proposal.",
+      "author": {
+        "name": "d3lap1ace"
+      },
+      "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "prd",
+        "solution-review"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "translate-en-zh",
+      "displayName": "Translate English to Chinese",
+      "source": "./skills/translate-en-zh",
+      "description": "Translate English pages, PDFs, Markdown, HTML, and text into Simplified Chinese.",
+      "author": {
+        "name": "d3lap1ace"
+      },
+      "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "translation",
+        "chinese"
+      ],
+      "category": "writing"
     }
   ]
 }

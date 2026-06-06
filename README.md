@@ -9,7 +9,6 @@ A small Claude Code plugin marketplace for reusable skills.
 | Skill | What it does |
 | --- | --- |
 | `exchange-rate` | Currency conversion, latest rates, historical rates, and rate trends. |
-| `auto-code-review` | Reviews code and applies safe fixes from Claude feedback. |
 | `prd-solution-review` | Turns repo context plus requirements into a concise review proposal. |
 | `translate-en-zh` | Translates English pages, PDFs, Markdown, HTML, and text into Simplified Chinese. |
 
@@ -26,7 +25,6 @@ Install only the plugin you need:
 | Plugin | Install command |
 | --- | --- |
 | `exchange-rate` | `/plugin install exchange-rate@marinotta-skills` |
-| `auto-code-review` | `/plugin install auto-code-review@marinotta-skills` |
 | `prd-solution-review` | `/plugin install prd-solution-review@marinotta-skills` |
 | `translate-en-zh` | `/plugin install translate-en-zh@marinotta-skills` |
 
@@ -34,7 +32,6 @@ Install only the plugin you need:
 
 ```text
 /exchange-rate Convert 100 USD to CNY
-/auto-code-review Review my current git changes
 /prd-solution-review Analyze this repo and draft a review-ready plan
 /translate-en-zh Translate this saved HTML article into Chinese
 ```

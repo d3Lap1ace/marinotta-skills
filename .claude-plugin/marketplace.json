@@ -24,23 +24,6 @@
       "category": "utilities"
     },
     {
-      "name": "auto-code-review",
-      "displayName": "Auto Code Review",
-      "source": "./skills/auto-code-review",
-      "description": "Review code and apply safe fixes from Claude feedback.",
-      "author": {
-        "name": "d3lap1ace"
-      },
-      "repository": "https://github.com/d3Lap1ace/marinotta-skills",
-      "license": "MIT",
-      "keywords": [
-        "claude-code",
-        "skills",
-        "code-review"
-      ],
-      "category": "development"
-    },
-    {
       "name": "prd-solution-review",
       "displayName": "PRD Solution Review",
       "source": "./skills/prd-solution-review",

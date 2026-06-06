@@ -9,7 +9,6 @@
 | 技能 | 用途 |
 | --- | --- |
 | `exchange-rate` | 汇率换算、最新汇率、历史汇率和趋势查询。 |
-| `auto-code-review` | 审查代码，并根据 Claude 反馈应用安全修复。 |
 | `prd-solution-review` | 结合仓库上下文和需求，输出简洁的评审方案。 |
 | `translate-en-zh` | 将英文网页、PDF、Markdown、HTML 和文本翻译成简体中文。 |
 
@@ -26,7 +25,6 @@
 | 插件 | 安装命令 |
 | --- | --- |
 | `exchange-rate` | `/plugin install exchange-rate@marinotta-skills` |
-| `auto-code-review` | `/plugin install auto-code-review@marinotta-skills` |
 | `prd-solution-review` | `/plugin install prd-solution-review@marinotta-skills` |
 | `translate-en-zh` | `/plugin install translate-en-zh@marinotta-skills` |
 
@@ -34,7 +32,6 @@
 
 ```text
 /exchange-rate Convert 100 USD to CNY
-/auto-code-review Review my current git changes
 /prd-solution-review Analyze this repo and draft a review-ready plan
 /translate-en-zh Translate this saved HTML article into Chinese
 ```

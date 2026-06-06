@@ -16,7 +16,6 @@
     "currency",
     "converter",
     "prd",
-    "code-review",
     "translation"
   ],
   "files": [
@@ -30,6 +29,6 @@
     "test:exchange-rate": "npx tsx skills/exchange-rate/scripts/exchange.ts --help",
     "validate": "python3 -B scripts/validate.py",
     "install:dry-run": "python3 -B scripts/install.py all --dry-run",
-    "validate:plugins": "claude plugin validate --strict . && claude plugin validate --strict skills/exchange-rate && claude plugin validate --strict skills/auto-code-review && claude plugin validate --strict skills/prd-solution-review && claude plugin validate --strict skills/translate-en-zh"
+    "validate:plugins": "claude plugin validate --strict . && claude plugin validate --strict skills/exchange-rate && claude plugin validate --strict skills/prd-solution-review && claude plugin validate --strict skills/translate-en-zh"
   }
 }

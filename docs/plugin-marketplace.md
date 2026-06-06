@@ -14,7 +14,6 @@ Install a single plugin:
 
 ```text
 /plugin install exchange-rate@marinotta-skills
-/plugin install auto-code-review@marinotta-skills
 /plugin install prd-solution-review@marinotta-skills
 /plugin install translate-en-zh@marinotta-skills
 ```

@@ -1,106 +1,98 @@
 # Marinotta Skills
 
-<p align="center">
-  <a href="./README.md"><img src="https://img.shields.io/badge/English-0B6EFD?style=for-the-badge" alt="English"></a>
-  <a href="./README.zh-CN.md"><img src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87-111827?style=for-the-badge" alt="中文"></a>
-</p>
+English | [中文](./README.zh-CN.md)
 
-A curated collection of reusable skills for Claude Code, Codex, and agent-style skill loaders.
+A small collection of reusable skills for Claude Code, Codex, and agent-style skill loaders.
 
-Install it as a Claude Code plugin marketplace, or copy individual skills into your local agent setup.
+Use it as a Claude Code plugin marketplace, or copy individual skills into your local agent setup.
 
-## Available Skills
+## Skills
 
-| Skill | Purpose | Stack |
-| --- | --- | --- |
-| `exchange-rate` | Query real-time rates, historical rates, and exchange-rate trends. | TypeScript, Bun |
-| `prd-to-solution` | Generate full technical solution documents from PRDs. | TypeScript, Bun |
-| `auto-code-review` | Review code with Claude feedback and apply safe fixes. | Markdown workflow |
-| `prd-solution-review` | Analyze a repo plus requirements and draft a concise review-ready solution. | Markdown workflow |
-| `translate-en-zh` | Translate English web pages, PDFs, Markdown, HTML, and text into polished Simplified Chinese. | Python helper |
+| Skill | What it does |
+| --- | --- |
+| `exchange-rate` | Currency conversion, latest rates, historical rates, and rate trends. |
+| `prd-to-solution` | Generates full technical solution documents from PRDs. |
+| `auto-code-review` | Reviews code and applies safe fixes from Claude feedback. |
+| `prd-solution-review` | Turns repo context plus requirements into a concise review proposal. |
+| `translate-en-zh` | Translates English pages, PDFs, Markdown, HTML, and text into Simplified Chinese. |
 
-Each skill lives under `skills/<name>/`. Agent-facing instructions are in `SKILL.md`; human-facing notes are in each skill's `README.md`.
+## Claude Code Marketplace
 
-## Installation
-
-### Claude Code Plugin Marketplace
-
-Add this repository as a Claude Code plugin marketplace:
+Add this repository as a marketplace:
 
 ```text
 /plugin marketplace add d3Lap1ace/marinotta-skills
 ```
 
-Install the plugin:
+Plugin install list:
+
+The marketplace currently publishes one compact plugin package; choose individual skills when invoking them.
+
+| Plugin | Install command |
+| --- | --- |
+| All Marinotta skills | `/plugin install marinotta-skills@marinotta-skills` |
+
+After installation, call skills with the plugin namespace:
 
 ```text
-/plugin install marinotta-skills@marinotta-skills
-```
-
-After installation, skills are available under the plugin namespace, for example:
-
-```text
+/marinotta-skills:exchange-rate
+/marinotta-skills:prd-to-solution
 /marinotta-skills:translate-en-zh
 /marinotta-skills:auto-code-review
+/marinotta-skills:prd-solution-review
 ```
 
-### Local Install Script
+## Examples
 
-Install all supported targets:
+```text
+/marinotta-skills:exchange-rate Convert 100 USD to CNY
+/marinotta-skills:prd-to-solution Create a technical solution from this PRD
+/marinotta-skills:auto-code-review Review my current git changes
+/marinotta-skills:prd-solution-review Analyze this repo and draft a review-ready plan
+/marinotta-skills:translate-en-zh Translate this saved HTML article into Chinese
+```
+
+## Local Install
+
+Install all supported local targets:
 
 ```bash
 python3 scripts/install.py all
 ```
 
-Install only Claude Code commands:
+Install one target:
 
 ```bash
 python3 scripts/install.py claude-code
-```
-
-Install only Codex or Agent-style skills:
-
-```bash
 python3 scripts/install.py codex
 python3 scripts/install.py agents
 ```
 
-Preview actions without copying:
+Preview without copying:
 
 ```bash
 python3 scripts/install.py all --dry-run
 ```
 
-Use `--force` to overwrite an existing installed copy.
-
-## Repository Layout
+## Layout
 
 ```text
-.claude-plugin/         Claude Code plugin marketplace and plugin manifests
-commands/claude-code/   Claude Code slash command templates
+.claude-plugin/         Claude Code marketplace and plugin manifests
+commands/claude-code/   Slash command templates
 docs/                   Installation and authoring notes
-scripts/                Installer and validation helpers
+scripts/                Install and validation helpers
 skills/                 Reusable skill packages
 ```
+
+Each skill keeps agent-facing instructions in `SKILL.md` and human-facing notes in its own `README.md`.
 
 ## Validate
 
 ```bash
 python3 scripts/validate.py
+claude plugin validate .
 ```
-
-or:
-
-```bash
-npm run validate
-```
-
-## Usage Notes
-
-`exchange-rate` and `prd-to-solution` include TypeScript command helpers. Use Bun or `npx tsx` as shown in each skill's documentation.
-
-`translate-en-zh` includes a Python extraction helper for local Markdown, text, saved HTML, and PDFs. PDF extraction needs one optional package such as `pypdf`, `pdfminer.six`, or `pymupdf`.
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

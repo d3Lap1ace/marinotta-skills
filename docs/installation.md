@@ -1,5 +1,35 @@
 # Installation
 
+## skills CLI (recommended)
+
+Install directly from GitHub with the [skills CLI](https://skills.sh):
+
+```bash
+npx skills add d3Lap1ace/marinotta-skills
+```
+
+Useful variants:
+
+```bash
+# Install all skills without prompts
+npx skills add d3Lap1ace/marinotta-skills --skill '*'
+
+# Install a single skill
+npx skills add d3Lap1ace/marinotta-skills --skill exchange-rate
+
+# Install globally (user-level) instead of per-project
+npx skills add d3Lap1ace/marinotta-skills -g
+```
+
+Manage installed skills:
+
+```bash
+npx skills list
+npx skills remove <name>
+```
+
+## Manual install script
+
 Clone the repository:
 
 ```bash

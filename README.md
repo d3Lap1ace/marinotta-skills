@@ -2,7 +2,7 @@
 
 English | [中文](./README.zh-CN.md)
 
-A small Claude Code plugin marketplace for reusable skills.
+A small collection of reusable skills for coding agents.
 
 ## Skills
 
@@ -13,31 +13,30 @@ A small Claude Code plugin marketplace for reusable skills.
 | `prd-solution-review` | Turns repo context plus requirements into a concise review proposal. |
 | `translate-en-zh` | Translates English pages, PDFs, Markdown, HTML, and text into Simplified Chinese. |
 
-## Install From Claude Code
+## Install
 
-Add the marketplace:
+Install with the [skills CLI](https://skills.sh) (supports Claude Code, Codex, Cursor, and 40+ other agents):
 
-```text
-/plugin marketplace add d3Lap1ace/marinotta-skills
+```bash
+npx skills add d3Lap1ace/marinotta-skills
 ```
 
-Install all plugins:
+Install all skills without prompts:
 
-```text
-/plugin install exchange-rate@marinotta-skills
-/plugin install medium-track@marinotta-skills
-/plugin install prd-solution-review@marinotta-skills
-/plugin install translate-en-zh@marinotta-skills
+```bash
+npx skills add d3Lap1ace/marinotta-skills --skill '*'
 ```
 
-Install only the plugin you need:
+Install only the skill you need:
 
-| Plugin | Install command |
+| Skill | Install command |
 | --- | --- |
-| `exchange-rate` | `/plugin install exchange-rate@marinotta-skills` |
-| `medium-track` | `/plugin install medium-track@marinotta-skills` |
-| `prd-solution-review` | `/plugin install prd-solution-review@marinotta-skills` |
-| `translate-en-zh` | `/plugin install translate-en-zh@marinotta-skills` |
+| `exchange-rate` | `npx skills add d3Lap1ace/marinotta-skills --skill exchange-rate` |
+| `medium-track` | `npx skills add d3Lap1ace/marinotta-skills --skill medium-track` |
+| `prd-solution-review` | `npx skills add d3Lap1ace/marinotta-skills --skill prd-solution-review` |
+| `translate-en-zh` | `npx skills add d3Lap1ace/marinotta-skills --skill translate-en-zh` |
+
+Add `-g` to install globally (user-level) instead of per-project.
 
 ## Examples
 

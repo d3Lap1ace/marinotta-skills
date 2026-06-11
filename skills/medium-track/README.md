@@ -6,19 +6,20 @@ Fetch a Medium article (including member-only paywalled posts via your own Mediu
 
 ## Install
 
-From Claude Code:
+With the [skills CLI](https://skills.sh):
 
-```text
-/plugin marketplace add d3Lap1ace/marinotta-skills
-/plugin install medium-track@marinotta-skills
+```bash
+npx skills add d3Lap1ace/marinotta-skills --skill medium-track -g
 ```
 
 Then install Python dependencies and configure your Medium cookie once:
 
 ```bash
 pip install requests beautifulsoup4 markdownify
-python3 ~/.claude/plugins/cache/marinotta-skills/medium-track/1.0.0/scripts/setup_cookie.py
+python3 ~/.claude/skills/medium-track/scripts/setup_cookie.py
 ```
+
+(If you installed per-project instead of with `-g`, the script lives at `.claude/skills/medium-track/scripts/setup_cookie.py`.)
 
 After that, paste a Medium URL into Claude Code and ask "翻译并提炼这篇". The skill triggers automatically.
 

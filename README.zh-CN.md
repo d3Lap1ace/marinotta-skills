@@ -2,7 +2,7 @@
 
 [English](./README.md) | 中文
 
-一个精简的 Claude Code plugin marketplace，用来分发可复用技能。
+一个精简的可复用技能集合，适用于各类 coding agent。
 
 ## 技能
 
@@ -13,31 +13,30 @@
 | `prd-solution-review` | 结合仓库上下文和需求，输出简洁的评审方案。 |
 | `translate-en-zh` | 将英文网页、PDF、Markdown、HTML 和文本翻译成简体中文。 |
 
-## 从 Claude Code 安装
+## 安装
 
-添加 marketplace：
+使用 [skills CLI](https://skills.sh) 安装（支持 Claude Code、Codex、Cursor 等 40+ 种 agent）：
 
-```text
-/plugin marketplace add d3Lap1ace/marinotta-skills
+```bash
+npx skills add d3Lap1ace/marinotta-skills
 ```
 
-安装全部插件：
+免交互安装全部技能：
 
-```text
-/plugin install exchange-rate@marinotta-skills
-/plugin install medium-track@marinotta-skills
-/plugin install prd-solution-review@marinotta-skills
-/plugin install translate-en-zh@marinotta-skills
+```bash
+npx skills add d3Lap1ace/marinotta-skills --skill '*'
 ```
 
-只安装你需要的插件：
+只安装你需要的技能：
 
-| 插件 | 安装命令 |
+| 技能 | 安装命令 |
 | --- | --- |
-| `exchange-rate` | `/plugin install exchange-rate@marinotta-skills` |
-| `medium-track` | `/plugin install medium-track@marinotta-skills` |
-| `prd-solution-review` | `/plugin install prd-solution-review@marinotta-skills` |
-| `translate-en-zh` | `/plugin install translate-en-zh@marinotta-skills` |
+| `exchange-rate` | `npx skills add d3Lap1ace/marinotta-skills --skill exchange-rate` |
+| `medium-track` | `npx skills add d3Lap1ace/marinotta-skills --skill medium-track` |
+| `prd-solution-review` | `npx skills add d3Lap1ace/marinotta-skills --skill prd-solution-review` |
+| `translate-en-zh` | `npx skills add d3Lap1ace/marinotta-skills --skill translate-en-zh` |
+
+加 `-g` 可安装到全局（用户级）而不是当前项目。
 
 ## 示例
 

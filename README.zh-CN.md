@@ -32,13 +32,13 @@ npx skills add d3Lap1ace/marinotta-skills --skill '*'
 
 | 技能 | 安装命令 |
 | --- | --- |
-| `exchange-rate` | `npx skills add d3Lap1ace/marinotta-skills --skill exchange-rate` |
-| `git-auto-workspace` | `npx skills add d3Lap1ace/marinotta-skills --skill git-auto-workspace` |
-| `medium-track` | `npx skills add d3Lap1ace/marinotta-skills --skill medium-track` |
-| `prd-solution-review` | `npx skills add d3Lap1ace/marinotta-skills --skill prd-solution-review` |
-| `translate-en-zh` | `npx skills add d3Lap1ace/marinotta-skills --skill translate-en-zh` |
+| `exchange-rate` | `npx skills add d3Lap1ace/marinotta-skills -g --skill exchange-rate` |
+| `git-auto-workspace` | `npx skills add d3Lap1ace/marinotta-skills -g --skill git-auto-workspace` |
+| `medium-track` | `npx skills add d3Lap1ace/marinotta-skills -g --skill medium-track` |
+| `prd-solution-review` | `npx skills add d3Lap1ace/marinotta-skills -g --skill prd-solution-review` |
+| `translate-en-zh` | `npx skills add d3Lap1ace/marinotta-skills -g --skill translate-en-zh` |
 
-加 `-g` 可安装到全局（用户级）而不是当前项目。
+去掉 `-g` 可安装到当前项目而不是全局（用户级）。
 
 ## 示例
 

@@ -32,6 +32,20 @@ Turn a Medium article URL into a Simplified Chinese translation and a structured
 - When the fetcher fails with a cookie-related message, paste its stderr to the user. The message already contains the setup instructions; do not summarize it away.
 - Never attempt to "log in" yourself, generate a sid value, or scrape via alternative mirrors. The user re-configures, then retries.
 
+### Three ways to configure the cookie
+
+When the cookie is missing or expired (during install, or when the fetcher fails), tell the user there are three ways to set it up, and offer the third one proactively:
+
+1. **Interactive script** — the user runs `python3 scripts/setup_cookie.py` and pastes the `sid` (or full `Cookie:` header) when prompted.
+2. **Manual file** — the user writes `~/.config/medium-track/config.json` themselves as `{"sid": "<value>"}` (chmod `0600`).
+3. **Tell the agent the sid** — the user pastes their `sid` value (or full `Cookie:` header) into the conversation and asks you to configure it. You then run, on their behalf:
+   ```
+   python3 scripts/setup_cookie.py --sid '<value>' --force
+   ```
+   The script extracts the `sid` token, writes `~/.config/medium-track/config.json` at mode `0600`, and never uploads anything. After it succeeds, rerun the fetcher.
+
+For option 3, only run the command with the value the user actually provided. Do not invent, guess, or reuse a sid. Treat the value as a secret: do not echo it back in your reply.
+
 ## Translation Prompt
 
 Translate the article body into Simplified Chinese with these rules:

@@ -33,9 +33,24 @@ This skill never logs in for you. You paste the cookie value from your own brows
    - **Firefox**: `Cmd+Opt+I` → **Storage** → **Cookies** → `https://medium.com`
    - **Safari**: enable Develop menu, then **Develop → Show Web Inspector → Storage → Cookies**
 3. Either (a) find the cookie named `sid` and copy its **value** (a long opaque string), OR (b) copy the whole `Cookie:` request header from the Network tab — the setup script auto-extracts the `sid` token either way.
-4. Run `python3 scripts/setup_cookie.py` and paste the value when prompted. The script writes it to `~/.config/medium-track/config.json` with permission `0600`.
+4. Save the value using **one of the three methods below**.
 
 > The file is the **only** source of authentication this skill reads. There is no env var, no browser auto-extraction, no remote config.
+
+## Three ways to save the cookie
+
+Once you have the `sid` value (or full `Cookie:` header), pick whichever is easiest. All three end up writing the same `~/.config/medium-track/config.json` at mode `0600`.
+
+1. **Interactive script** — run it and paste when prompted:
+   ```bash
+   python3 ~/.claude/skills/medium-track/scripts/setup_cookie.py
+   ```
+2. **Manual file** — create `~/.config/medium-track/config.json` yourself:
+   ```json
+   { "sid": "<your-sid-value>" }
+   ```
+   then `chmod 600` it.
+3. **Let the agent do it** — paste your `sid` into Claude Code and say "用这个 sid 配置 medium-track". The agent runs `setup_cookie.py --sid '<value>' --force` for you. Handy when cookie extraction fails or you'd rather not touch the terminal. (Your sid is your Medium login — only paste it into a session you trust.)
 
 ## Privacy
 
@@ -54,7 +69,7 @@ Please configure it once:
   ...
 ```
 
-Just redo the four-step process above. Cookies on Medium typically last weeks to months.
+Just grab a fresh `sid` and save it again with any of the three methods above. Cookies on Medium typically last weeks to months.
 
 ## Security notes
 

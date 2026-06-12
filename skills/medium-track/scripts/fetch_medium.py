@@ -37,12 +37,18 @@ MIN_FULL_ARTICLE_WORDS = 300
 INSTRUCTION_MSG = """\
 medium-track: could not read a valid Medium sid cookie.
 
-Run once to configure:
-  python3 scripts/setup_cookie.py
+Configure it with any one of these three methods:
 
-Or write ~/.config/medium-track/config.json manually:
-  {"sid": "<paste-value-here>"}
-then `chmod 600 ~/.config/medium-track/config.json`.
+  1. Interactive script:
+       python3 scripts/setup_cookie.py
+
+  2. Manual file ~/.config/medium-track/config.json:
+       {"sid": "<paste-value-here>"}
+     then `chmod 600 ~/.config/medium-track/config.json`.
+
+  3. Tell the agent: paste your sid into the chat and ask it to configure
+     medium-track. The agent runs `setup_cookie.py --sid '<value>' --force`
+     for you.
 
 The value can be either the bare `sid` cookie or the full `Cookie:` request
 header from DevTools — the script auto-extracts the sid token.

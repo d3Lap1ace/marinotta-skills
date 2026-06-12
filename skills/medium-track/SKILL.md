@@ -28,7 +28,7 @@ Turn a Medium article URL into a Simplified Chinese translation and a structured
 ## Auth Handling
 
 - Cookie source: `~/.config/medium-track/config.json` only, JSON shape `{"sid": "<value>"}`. No environment variable, no browser auto-extraction, no other path.
-- The `sid` field accepts either a bare `sid` cookie value or the full `Cookie:` request header — the fetcher extracts the `sid` token internally.
+- The `sid` field accepts either a bare `sid` cookie value or the full `Cookie:` request header. A bare value is sent as a single `sid` cookie; a full header is sent verbatim. Prefer the full header — some member-only stories require the whole session (`uid`, `sid`, `cf_clearance`, …) and reject a lone `sid` cookie. Note `cf_clearance` is short-lived, so a saved header may need refreshing.
 - When the fetcher fails with a cookie-related message, paste its stderr to the user. The message already contains the setup instructions; do not summarize it away.
 - Never attempt to "log in" yourself, generate a sid value, or scrape via alternative mirrors. The user re-configures, then retries.
 
@@ -42,7 +42,7 @@ When the cookie is missing or expired (during install, or when the fetcher fails
    ```
    python3 scripts/setup_cookie.py --sid '<value>' --force
    ```
-   The script extracts the `sid` token, writes `~/.config/medium-track/config.json` at mode `0600`, and never uploads anything. After it succeeds, rerun the fetcher.
+   The script validates the `sid` token, saves the value verbatim (a full `Cookie:` header is kept whole) to `~/.config/medium-track/config.json` at mode `0600`, and never uploads anything. After it succeeds, rerun the fetcher.
 
 For option 3, only run the command with the value the user actually provided. Do not invent, guess, or reuse a sid. Treat the value as a secret: do not echo it back in your reply.
 

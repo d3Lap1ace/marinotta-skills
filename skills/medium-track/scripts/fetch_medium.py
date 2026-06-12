@@ -25,10 +25,12 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/125.0.0.0 Safari/537.36"
 )
+# Reliable truncation signals only. The bare "Member-only story" badge is
+# rendered on member stories you CAN fully read, so it is NOT listed here —
+# genuinely-truncated member stories are caught by detect_short_body() instead.
 PAYWALL_HTML_MARKERS = (
     'data-testid="storyPaywall"',
     'data-testid="paywall"',
-    'Member-only story',
     'Get unlimited access to the best of Medium',
     'Read the rest of this story with a free account',
 )
@@ -74,7 +76,13 @@ def extract_sid(cookie_value: str) -> str | None:
     return value
 
 
-def load_sid(config_path: Path) -> str:
+def load_cookie(config_path: Path) -> str:
+    """Return the raw cookie value from config (bare sid or full Cookie header).
+
+    A bare sid is sent as a single `sid` cookie. A full `Cookie:` header is sent
+    verbatim — some member-only stories require the whole session (uid, sid,
+    cf_clearance, ...) and reject a lone sid cookie.
+    """
     if not config_path.exists():
         fail(INSTRUCTION_MSG)
     try:
@@ -89,17 +97,22 @@ def load_sid(config_path: Path) -> str:
         fail(
             f"medium-track: cookie file {config_path} has a `sid` value but no `sid=...` token could be extracted from it.\n\n{INSTRUCTION_MSG}"
         )
-    return sid
+    return raw
 
 
-def fetch_html(url: str, sid: str) -> str:
+def fetch_html(url: str, cookie_value: str) -> str:
     session = requests.Session()
     session.headers.update({
         "User-Agent": USER_AGENT,
         "Accept": "text/html,application/xhtml+xml",
         "Accept-Language": "en-US,en;q=0.9",
     })
-    session.cookies.set("sid", sid, domain=".medium.com")
+    # Full `Cookie:` header (contains a `name=value` pair) → send verbatim.
+    # Bare sid value → set just the sid cookie on the .medium.com domain.
+    if "=" in cookie_value:
+        session.headers["Cookie"] = cookie_value
+    else:
+        session.cookies.set("sid", cookie_value, domain=".medium.com")
     try:
         resp = session.get(url, timeout=30, allow_redirects=True)
     except requests.RequestException as exc:
@@ -244,8 +257,8 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    sid = load_sid(args.config)
-    html = fetch_html(args.url, sid)
+    cookie_value = load_cookie(args.config)
+    html = fetch_html(args.url, cookie_value)
 
     paywall_marker = detect_paywall_in_html(html)
     if paywall_marker:

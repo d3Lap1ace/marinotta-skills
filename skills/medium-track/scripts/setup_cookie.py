@@ -2,7 +2,9 @@
 """Write ~/.config/medium-track/config.json with the user's Medium sid.
 
 Accepts either a bare `sid` cookie value or a full `Cookie:` request header.
-The fetcher extracts the sid token at read time. File mode is set to 0600.
+The value is validated (a `sid` token must be present) and saved verbatim — a
+full header is kept whole so the fetcher can send the entire session, which some
+member-only stories require. File mode is set to 0600.
 """
 from __future__ import annotations
 

@@ -7,6 +7,8 @@ description: Translate English web pages, local PDFs, saved HTML, Markdown, and 
 
 Translate English source material into a coherent Simplified Chinese manuscript. Default to a finished Chinese draft, not bilingual output, unless the user explicitly asks for side-by-side translation.
 
+**Always translate the full text. Never summarize, condense, or omit content.** Render every sentence of the source. The output must be a complete translation of the entire source, not a digest, abstract, or paraphrase. If the user wants a summary, that is a different task—do not substitute one for a translation.
+
 ## Core Workflow
 
 1. Identify the source type: web page, local PDF, local Markdown, plain text, or saved HTML.
@@ -45,12 +47,15 @@ Translate English source material into a coherent Simplified Chinese manuscript.
 - Keep the source structure unless the user asks for restructuring.
 - Introduce key terms as `中文（English）` on first occurrence when the English term is useful for recognition; use the agreed Chinese term afterward.
 - Keep proper nouns in English when translation would reduce clarity, or use `中文（English）` for well-known translated terms.
+- For long sources (roughly 2000+ English words, or any article long enough that a reader benefits from an overview), prepend a `## TL;DR` section at the very top: 3–6 Simplified Chinese bullet points capturing the article's key points. This is an addition for navigation only—it never replaces or shortens the full translation, which must still follow in its entirety below the TL;DR.
+- After the full translation, append a `## 启示与思考` section: your own genuine takeaways and reflections on the article—what is insightful, what is questionable, how it connects to broader context, and what the reader might do with it. This is your perspective, not a restatement of the source; keep it honest and substantive rather than flattering filler. It comes after the complete translation and never replaces any part of it.
 - Add a short `译者备注` section only when there are uncertain terms, extraction gaps, or source ambiguities worth surfacing.
 - If writing a file, use the same base name with a clear suffix such as `.zh.md` unless the user specifies a path.
 
 ## Quality Checklist
 
 - Confirm the output is Simplified Chinese and reads like a finished manuscript.
+- Confirm the translation covers the entire source with nothing summarized, condensed, or skipped.
 - Confirm headings, lists, tables, links, code blocks, footnotes, and quote blocks are preserved.
 - Confirm code, commands, paths, URLs, package names, API names, and identifiers were not translated.
 - Confirm terminology is consistent across chunks.

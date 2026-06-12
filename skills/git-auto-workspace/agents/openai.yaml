@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Auto Workspace"
+  short_description: "Clone Git remotes into owner/repo folders"
+  default_prompt: "Use $git-auto-workspace to clone this GitHub repo into ~/Code/Github.com/<owner>/<repo> and run git commands there."

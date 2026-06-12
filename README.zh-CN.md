@@ -9,6 +9,7 @@
 | 技能 | 用途 |
 | --- | --- |
 | `exchange-rate` | 汇率换算、最新汇率、历史汇率和趋势查询。 |
+| `git-auto-workspace` | 将 GitHub 远程地址解析到 `~/Code/Github.com/<owner>/<repo>`，并在运行 git 命令前创建或克隆工作目录。 |
 | `medium-track` | 用你自己的 sid cookie 抓取 Medium 文章，会话内输出简体中文译文与要点摘要。 |
 | `prd-solution-review` | 结合仓库上下文和需求，输出简洁的评审方案。 |
 | `translate-en-zh` | 将英文网页、PDF、Markdown、HTML 和文本翻译成简体中文。 |
@@ -32,6 +33,7 @@ npx skills add d3Lap1ace/marinotta-skills --skill '*'
 | 技能 | 安装命令 |
 | --- | --- |
 | `exchange-rate` | `npx skills add d3Lap1ace/marinotta-skills --skill exchange-rate` |
+| `git-auto-workspace` | `npx skills add d3Lap1ace/marinotta-skills --skill git-auto-workspace` |
 | `medium-track` | `npx skills add d3Lap1ace/marinotta-skills --skill medium-track` |
 | `prd-solution-review` | `npx skills add d3Lap1ace/marinotta-skills --skill prd-solution-review` |
 | `translate-en-zh` | `npx skills add d3Lap1ace/marinotta-skills --skill translate-en-zh` |
@@ -42,6 +44,7 @@ npx skills add d3Lap1ace/marinotta-skills --skill '*'
 
 ```text
 /exchange-rate Convert 100 USD to CNY
+/git-auto-workspace git@github.com:d3Lap1ace/gitso.git
 /medium-track https://medium.com/<author>/<slug>
 /prd-solution-review Analyze this repo and draft a review-ready plan
 /translate-en-zh Translate this saved HTML article into Chinese

@@ -24,6 +24,25 @@
       "category": "utilities"
     },
     {
+      "name": "git-auto-workspace",
+      "displayName": "Git Auto Workspace",
+      "source": "./skills/git-auto-workspace",
+      "description": "Resolve GitHub remotes into ~/Code/Github.com/<owner>/<repo> and create or clone the workspace before running git commands.",
+      "author": {
+        "name": "d3lap1ace"
+      },
+      "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "git",
+        "github",
+        "workspace"
+      ],
+      "category": "development"
+    },
+    {
       "name": "prd-solution-review",
       "displayName": "PRD Solution Review",
       "source": "./skills/prd-solution-review",

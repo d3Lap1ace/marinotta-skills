@@ -1,0 +1,19 @@
+{
+  "name": "git-auto-workspace",
+  "version": "1.0.0",
+  "displayName": "Git Auto Workspace",
+  "description": "Resolve GitHub remotes into ~/Code/Github.com/<owner>/<repo> and create or clone the workspace before running git commands.",
+  "author": {
+    "name": "d3lap1ace",
+    "url": "https://github.com/d3Lap1ace"
+  },
+  "repository": "https://github.com/d3Lap1ace/marinotta-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "git",
+    "github",
+    "workspace"
+  ]
+}

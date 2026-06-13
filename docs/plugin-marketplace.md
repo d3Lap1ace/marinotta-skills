@@ -16,7 +16,6 @@ Install a single plugin:
 /plugin install exchange-rate@marinotta-skills
 /plugin install git-auto-workspace@marinotta-skills
 /plugin install medium-track@marinotta-skills
-/plugin install prd-solution-review@marinotta-skills
 /plugin install translate-en-zh@marinotta-skills
 ```
 

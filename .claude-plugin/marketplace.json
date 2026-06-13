@@ -3,7 +3,7 @@
   "owner": {
     "name": "d3lap1ace"
   },
-  "description": "A Claude Code plugin marketplace for reusable development, review, translation, and utility skills.",
+  "description": "A Claude Code plugin marketplace for reusable development, translation, and utility skills.",
   "plugins": [
     {
       "name": "exchange-rate",
@@ -39,24 +39,6 @@
         "git",
         "github",
         "workspace"
-      ],
-      "category": "development"
-    },
-    {
-      "name": "prd-solution-review",
-      "displayName": "PRD Solution Review",
-      "source": "./skills/prd-solution-review",
-      "description": "Analyze a repo plus requirements and draft a concise review-ready solution proposal.",
-      "author": {
-        "name": "d3lap1ace"
-      },
-      "repository": "https://github.com/d3Lap1ace/marinotta-skills",
-      "license": "MIT",
-      "keywords": [
-        "claude-code",
-        "skills",
-        "prd",
-        "solution-review"
       ],
       "category": "development"
     },

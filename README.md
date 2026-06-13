@@ -11,7 +11,6 @@ A small collection of reusable skills for coding agents.
 | `exchange-rate` | Currency conversion, latest rates, historical rates, and rate trends. |
 | `git-auto-workspace` | Resolves GitHub remotes into `~/Code/Github.com/<owner>/<repo>` and creates or clones the workspace before git commands. |
 | `medium-track` | Fetches a Medium article via your own sid cookie, then translates it and produces a key-point summary inline. |
-| `prd-solution-review` | Turns repo context plus requirements into a concise review proposal. |
 | `translate-en-zh` | Translates English pages, PDFs, Markdown, HTML, and text into Simplified Chinese. |
 
 ## Install
@@ -35,7 +34,6 @@ Install only the skill you need:
 | `exchange-rate` | `npx skills add d3Lap1ace/marinotta-skills -g --skill exchange-rate` |
 | `git-auto-workspace` | `npx skills add d3Lap1ace/marinotta-skills -g --skill git-auto-workspace` |
 | `medium-track` | `npx skills add d3Lap1ace/marinotta-skills -g --skill medium-track` |
-| `prd-solution-review` | `npx skills add d3Lap1ace/marinotta-skills -g --skill prd-solution-review` |
 | `translate-en-zh` | `npx skills add d3Lap1ace/marinotta-skills -g --skill translate-en-zh` |
 
 Remove `-g` to install per-project instead of globally.
@@ -46,7 +44,6 @@ Remove `-g` to install per-project instead of globally.
 /exchange-rate Convert 100 USD to CNY
 /git-auto-workspace git@github.com:d3Lap1ace/gitso.git
 /medium-track https://medium.com/<author>/<slug>
-/prd-solution-review Analyze this repo and draft a review-ready plan
 /translate-en-zh Translate this saved HTML article into Chinese
 ```
 
